@@ -9,10 +9,47 @@ class Inventory:
         if path.isfile(inv_file):
             self.inv_file = inv_file
         else:
-            raise FileNotFoundError
+            raise FileNotFoundError("Please provide a valid filepath for your inventory CSV")
 
         self.items, self.item_types, self.certs = self.load_inventory()
 
+    @staticmethod
+    def paint_colors():
+        return [
+            "Titanium White",
+            "Grey",
+            "Sky Blue",
+            "Lime",
+            "Saffron",
+            "Cobalt",
+            "Forest Green",
+            "Burnt Sienna",
+            "Crimson",
+            "Pink",
+            "Purple",
+            "Black",
+            "Orange"
+        ]
+
+    @staticmethod
+    def all_certifications():
+        return [
+            "Paragon",
+            "Striker",
+            "Sweeper",
+            "Juggler",
+            "Sniper",
+            "Acrobat",
+            "Aviator",
+            "Goalkeeper",
+            "Guardian",
+            "Playmaker",
+            "Scorer",
+            "Show-Off",
+            "Turtle",
+            "Tactician",
+            "Victor"
+                ]
 
     def load_inventory(self):
         items = dict()
@@ -85,3 +122,4 @@ class Inventory:
                         i['name'] = k
                         matches.append(i)
         return matches
+
