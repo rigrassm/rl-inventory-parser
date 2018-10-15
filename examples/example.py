@@ -1,13 +1,13 @@
 from sys import argv
 from pathlib import Path
 from pprint import pprint as pp
-from parse_inventory import Inventory
+from inventory_parse import inventory as inv
 
 
 def main():
     try:
-        inv_csv_file = Path(argv[1])
-        inventory = Inventory(inv_csv_file)
+        inv_csv_file = Path(str(argv[1]))
+        inventory = inv.Inventory(inv_csv_file)
 
         pp(inventory.items)
         pp(inventory.certs)
